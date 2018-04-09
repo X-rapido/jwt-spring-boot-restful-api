@@ -1,22 +1,33 @@
-# Compiled class file
+# 忽略文件
+.DS_Store
+*/.settings/
+*/.DS_Store
 *.class
-
-# Log file
+*.iml
+*/*.iml
+**/*.iml
 *.log
+.classpath
 
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
+# 包文件 #
 *.jar
 *.war
-*.ear
 *.zip
 *.tar.gz
 *.rar
+
+# 忽略文件夹
+.settings/
+.gradle/
+.externalToolBuilders/
+
+**/target/
+**/build/
+**/out/
+classes/
+**/logs/
+**/.idea/
+.idea/
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
