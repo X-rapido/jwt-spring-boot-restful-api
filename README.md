@@ -4,13 +4,16 @@
 
 **作者：** 刘仁奎  
 **主页：** http://ibloger.net / http://chengxumiao.net
+**Git地址** https://github.com/X-rapido/jwt-spring-boot-restful-api
 
 ### 一、初探JWT
 
 #### 1、什么是JWT
 JWT(Json Web Token)，是一种工具，格式为` XXXX.XXXX.XXXX `的字符串，JWT以一种安全的方式在用户和服务器之间传递存放在JWT中的不敏感信息。
+
 #### 2、为什么要用JWT
 设想这样一个场景，在我们登录一个网站之后，再把网页或者浏览器关闭，下一次打开网页的时候可能显示的还是登录的状态，不需要再次进行登录操作，通过JWT就可以实现这样一个用户认证的功能。当然使用Session可以实现这个功能，但是使用Session的同时也会增加服务器的存储压力，而JWT是将存储的压力分布到各个客户端机器上，从而减轻服务器的压力。
+
 #### 3、JWT长什么样
 JWT由3个子字符串组成，分别为Header，Payload以及Signature，结合JWT的格式即：` Header.Payload.Signature `。（Claim是描述Json的信息的一个Json，将Claim转码之后生成Payload）。
 
@@ -345,15 +348,15 @@ public class SecureController {
 
 SpringBoot在2.0.1版本中会出现IgniteRepository的错误。
 
-```java
+```
 Error:(16, 8) java: 名称冲突: org.springframework.data.repository.CrudRepository中的deleteAll(java.lang.Iterable<? extends T>)和org.apache.ignite.springdata.repository.IgniteRepository中的deleteAll(java.lang.Iterable<ID>)具有相同疑符, 但两者均不覆盖对方
 ```
 springBootVersion = '1.5.10.RELEASE'
 
 也不要使用1.5.11版本，不然会出现下面类型转换问题
 
-```java
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'igniteCfg': Unsatisfied dependency expressed through field 'personService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'personServiceImpl': Unsatisfied dependency expressed through field 'personRepository'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'personRepository': Invocation of init method failed; nested exception is java.lang.ClassCastException: com.tingfeng.config.IgniteCfg$$EnhancerBySpringCGLIB$$5b3f3d81 cannot be cast to org.apache.ignite.configuration.IgniteConfiguration
+```
+ com.tingfeng.config.IgniteCfg$$EnhancerBySpringCGLIB$$5b3f3d81 cannot be cast to org.apache.ignite.configuration.IgniteConfiguration
 ```
 
 
